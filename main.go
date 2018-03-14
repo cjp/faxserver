@@ -23,4 +23,6 @@ func ringHandler(w http.ResponseWriter, r *http.Request) {
 
 func receivedHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("RECEIVED: %s\n", r.FormValue("MediaUrl"))
+	w.Header().Set("Content-type", "text/xml")
+	fmt.Fprintf(w, "%s", "<Response />")
 }
